@@ -1,0 +1,109 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>If Condition</h1>
+    <p>@ if, @ else, @ else if</p>
+    
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+        @if (isDiv1Visible==true)
+        {
+            <div class="bg-primary p-3 text-center d-flex justify-content-center align-items-center">
+                <h4>Div-1</h4>
+            </div>
+        }
+       
+    </div>
+    <div class="col-3">
+        @if (isWarningVisible)
+        {
+            <div class="bg-success p-3 text-center d-flex justify-content-center align-items-center">
+                <h4>Div-2</h4>
+            </div>
+        }
+        @else
+        {
+            <div class="bg-danger p-3 text-center d-flex justify-content-center align-items-center">
+                <h4>Div-2</h4>
+            </div>
+        }
+        
+    </div>
+    <div class="col-3">
+        @if (num1==num2)
+        {
+            <div class="bg-secondary p-3 text-center d-flex justify-content-center align-items-center">
+                <h4>Div-3</h4>
+            </div>
+        }
+       
+    </div>
+    <div class="col-3">
+        @if (selectedStatus== 'Active')
+        {
+            <div class=" bg-success p-3 text-center">
+                <p>Active Status</p>
+            </div>
+        
+        }
+        @else if (selectedStatus== 'Inactive')
+        {
+            <div class=" bg-danger p-3 text-center">
+                <p>Inactive Status</p>
+            </div>
+        }
+        @else if (selectedStatus== 'Pending')
+        {
+            <div class=" bg-warning p-3 text-center">
+                <p>Pending Status</p>
+            </div>
+        }
+        @else{
+              <div class=" bg-info p-3 text-center">
+                <p>Select Status</p>
+            </div>  
+        }
+          <!-- <div class=" bg-info p-3 text-center">
+            @if (selectedStatus== 'Active')
+            {
+                <p>Active Status</p>
+            } @else if (selectedStatus== 'Inactive')
+            {
+                <p>Inactive Status</p>
+            } @else if (selectedStatus== 'Pending')
+            {
+                <p>Pending Status</p>
+            } @else
+            {
+                <p>Select Status</p>
+            }
+        </div> -->
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-3 text-center d-flex gap-4">
+        <button class="btn btn-danger" (click)="showDiv1()">Show</button>
+        <button class="btn btn-primary" (click)="hideDiv1()">Hide</button>
+    </div>
+
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="toggleDiv2()">toggle</button>
+    </div>
+    <div class="col-3 text-center">
+        <div style="display: flex;align-items: center;">
+            <input type="text" [(ngModel)]="num1" class="form-control" placeholder="num1" >
+            <input type="text" [(ngModel)]="num2" class="form-control" placeholder="num2" >
+        </div>
+    </div>
+    <div class="col-3 text-center">
+        <div class="col-3 text-center d-flex gap-4">
+            
+            <select [(ngModel)]="selectedStatus">
+                <option value="">Select Status</option>
+                <option value="Active">Active Status</option>
+                <option value="Inactive">Inactive Status</option>
+                <option value="Pending">Pending Status</option>
+            </select>
+        </div>
+    </div>
+</div>
+

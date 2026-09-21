@@ -1,0 +1,87 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>Attribute Directive</h1>
+    <p>[ngClass], [ngStyle]</p>
+     <button class="btn btn-primary" routerLink="/structural-directive">Go to Structural Directive</button>
+    
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+        <div class=" p-3 text-center d-flex justify-content-center align-items-center" [ngClass]="div1BgColor">
+            <h4>Div-1</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class=" p-3 text-center d-flex justify-content-center align-items-center" [ngClass]="div2BgColor">
+            <h4>Div-2</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3 text-center" [ngClass]="num1==num2 ? 'bg-secondary text-white' : 'bg-danger text-white'">
+            <h4>Div-3</h4>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3 text-center" [ngClass]="isActive ? 'bg-primary' : 'bg-danger'">
+            <h4>Div-4</h4>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-3 text-center d-flex gap-4">
+        <button class="btn btn-danger" (click)="AddRedClass()">Add red</button>
+        <button class="btn btn-primary" (click)="AddBlueClass()">Add blue</button>
+    </div>
+
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="AddToggleClass()" [ngClass]="div2BgColor">toggle</button>
+    </div>
+    <div class="col-3 text-center">
+        <div style="display: flex;align-items: center;">
+            <input type="text" [(ngModel)]="num1" class="form-control" placeholder="num1" >
+            <input type="text" [(ngModel)]="num2" class="form-control" placeholder="num2" >
+        </div>
+    </div>
+    <div class="col-3 text-center">
+        <div class="col-3 text-center d-flex gap-4">
+            <input type="checkbox" [(ngModel)]="isActive" class="width-50">
+            <select>
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City Name</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stud of studentList">
+                    <td>{{stud.name}}</td>
+                    <td>{{stud.city}}</td>
+                    <td>{{stud.gender}}</td>
+                    <td [ngStyle]="{'background-color': stud.isActive ? 'green' : 'red'}" >
+                        <span>{{stud.isActive ? 'Active' : 'Inactive'}}</span></td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': stud.marks + '%'}" aria-valuenow="{{stud.marks}}" aria-valuemin="0" aria-valuemax="100">{{stud.marks}}</div>
+
+                        </div>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
