@@ -8,6 +8,7 @@ import { Ifelse } from './compoanants/ifelse/ifelse';
 import { Forandswitch } from './compoanants/forandswitch/forandswitch';
 import { PipeInAngular } from './compoanants/pipe-in-angular/pipe-in-angular';
 import { TemplateForm } from './compoanants/template-form/template-form';
+import { ReactiveForms } from './compoanants/reactive-forms/reactive-forms';
 
 export const routes: Routes = [
     {
@@ -43,8 +44,12 @@ export const routes: Routes = [
         component: PipeInAngular
     },
     {
-        path: 'template-form',
-        component: TemplateForm
+            path: 'template-form',
+            component: TemplateForm
+    },
+    {
+        path: 'reactive-forms',
+        component: ReactiveForms
     }
 
 ];
